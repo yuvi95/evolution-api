@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: evolution-api
+    env: docker
+    dockerComposePath: docker-compose.yml:evolution-api
+    region: singapore
+    plan: free
+    envVars:
+      - key: AUTH_KEY
+        fromTemplate: AUTH_KEY
+
+  - type: web
+    name: n8n
+    env: docker
+    dockerComposePath: docker-compose.yml:n8n
+    region: singapore
+    plan: free
+    envVars:
+      - key: N8N_USER
+        fromTemplate: N8N_USER
+      - key: N8N_PASSWORD
+        fromTemplate: N8N_PASSWORD
